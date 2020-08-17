@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const config = require('./config/key')
 const { User } = require('./models/User')
 const app = express()
 const port = 3000 // 포트 설정(웹 서버 기본 포트는 80)
@@ -11,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // 몽고디비 연결 및 설정
-mongoose.connect('Your MongoDB Connection Code', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
