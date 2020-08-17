@@ -20,7 +20,7 @@ mongoose.connect('Your MongoDB Connection Code', {
     .catch(err => console.log(err)) // 연결 실패 시
 
 // localhost:3000으로 접속 시
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!!'))
 
 // 회원 가입 정보를 데이터베이스에 저장
 app.post('/register', (req, res) => {
