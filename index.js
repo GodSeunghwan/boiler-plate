@@ -68,7 +68,15 @@ app.post('/api/users/login', (req, res) => {
 // Auth
 app.get('/api/users/auth', auth, (req, res) => {
     // 여기까지 오면 Auth 통과
-    res.status(200).json({ user: req.user })
+    res.status(200).json(req.user)
+})
+
+// 로그아웃
+app.get('/api/users/logout', auth, (req, res) => {
+    User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
+        if (err) return res.json({ success: false, err })
+        return res.status(200).json({ success: true })
+    })
 })
 
 app.listen(port, () => console.log(`port is ${port}`))
