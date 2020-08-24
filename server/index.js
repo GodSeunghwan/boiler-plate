@@ -6,7 +6,7 @@ const config = require('./config/key')
 const { auth } = require('./middleware/auth')
 const { User } = require('./models/User')
 const app = express()
-const port = 3000 // 포트 설정(웹 서버 기본 포트는 80)
+const port = 5000 // 포트 설정(웹 서버 기본 포트는 80)
 
 // URL 분석
 app.use(bodyParser.urlencoded({ extended: true }))
